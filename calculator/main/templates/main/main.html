@@ -1,610 +1,442 @@
 <!DOCTYPE html>
-<html lang="uk">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Калькулятор БЖ</title>
-    <link rel="stylesheet" href="../../static/css/PScalculator.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-  </head>
-  <body>
+    <title>PSU Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/PScalculator.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
     <header>
-      <nav class="navbar">
-        <div class="nav-left">
-          <a href="/" class="nav-logo">
-            <i class="fas fa-laptop"></i>
-          </a>
-          <ul class="nav-menu">
-            <li class="nav-item"><a href="/" class="nav-link">Головна</a></li>
-            <li class="nav-item"><a href="/services" class="nav-link">Сервіси</a></li>
-            <li class="nav-item"><a href="/about-us" class="nav-link">Про нас</a></li>
-          </ul>
-        </div>
-      </nav>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="/" class="nav-logo">
+                    <i class="fas fa-laptop"></i>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="/about-us" class="nav-link">About Us</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
+
     <div class="banner">
-      <img src="../../static/images/GAm.jpg" alt="Блок живлення" />
+        <img src="{% static 'images/GAm.jpg' %}" alt="Power Supply Unit" />
     </div>
+
     <div class="container-form-group" id="power__calculator">
-      <h3 class="sub__title">Choose Your Components</h3>
-      <div class="form-group dropdown-container" id="cpuDropdownContainer">
-        <div class="template__three-select-filters">
-          <div class="category">
-            <div class="category__title category--show">
-              <img src="../../static/images/cpu.png" alt="" />
-              <div class="title__text">CPU</div>
-            </div>
-          </div>
-          <div class="filter">
-            <select id="cpuDropdown">
-              <option value="">Select CPU Model</option>
-            </select>
-            <div class="dropdown-content">
-              <input type="text" id="cpuSearch" placeholder="Search CPU" />
-              <select size="10" id="cpuOptions">
-                <option value="3713" data-subtitle="193">
-                  Intel Core i5-13600
-                </option>
-                <option value="3712" data-subtitle="193">
-                  Intel Core i5-13600
-                </option>
-                <option value="2982" data-subtitle="436">
-                  Intel Core i9-14900F
-                </option>
-                <option value="2981" data-subtitle="436">
-                  Intel Core i9-14900
-                </option>
-                <option value="2980" data-subtitle="275">
-                  Intel Core i9-13900F
-                </option>
-                <option value="2979" data-subtitle="254">
-                  Intel Core i9-12900F
-                </option>
-                <option value="2978" data-subtitle="254">
-                  Intel Core i9-12900
-                </option>
-                <option value="2977" data-subtitle="164">
-                  Intel Core i9-11900F
-                </option>
-                <option value="2973" data-subtitle="328">
-                  Intel Core i7-14700F
-                </option>
-                <option value="2972" data-subtitle="328">
-                  Intel Core i7-14700
-                </option>
-                <option value="2970" data-subtitle="91">
-                  Intel Core i5-14400F
-                </option>
-                <option value="2969" data-subtitle="193">
-                  Intel Core i5-13500T
-                </option>
-                <option value="2966" data-subtitle="78">
-                  Intel Core i3-14100F
-                </option>
-                <option value="2965" data-subtitle="78">
-                  Intel Core i3-14100
-                </option>
-                <option value="2954" data-subtitle="168">
-                  AMD Ryzen 9 5900XT
-                </option>
-                <option value="2953" data-subtitle="150">
-                  AMD Ryzen 7 9700X
-                </option>
-                <option value="2952" data-subtitle="168">
-                  AMD Ryzen 7 5800XT
-                </option>
-                <option value="2951" data-subtitle="118">
-                  AMD Ryzen 5 9600X
-                </option>
-                <option value="2941" data-subtitle="398">
-                  Intel Core i9-14900KS
-                </option>
-                <option value="2936" data-subtitle="91">
-                  Intel Core i5-14400
-                </option>
-                <option value="2935" data-subtitle="112">
-                  Intel Core i3-13100
-                </option>
-                <option value="2930" data-subtitle="104">
-                  AMD Ryzen 5 5600GT
-                </option>
-                <option value="2929" data-subtitle="104">
-                  AMD Ryzen 5 5500GT
-                </option>
-                <option value="2927" data-subtitle="275">
-                  Intel Core i9-13900
-                </option>
-                <option value="2926" data-subtitle="314">
-                  Intel Core i9-11900KF
-                </option>
-                <option value="2925" data-subtitle="164">
-                  Intel Core i9-11900
-                </option>
-                <option value="2921" data-subtitle="164">
-                  Intel Core i7-11700F
-                </option>
-                <option value="2919" data-subtitle="152">
-                  Intel Core i5-14500
-                </option>
-                <option value="2918" data-subtitle="164">
-                  Intel Core i5-11600
-                </option>
-                <option value="2915" data-subtitle="99">
-                  AMD Ryzen 7 8700G
-                </option>
-                <option value="2911" data-subtitle="302">
-                  Intel Core i9-12900KF
-                </option>
-                <option value="2908" data-subtitle="314">
-                  Intel Core i7-11700KF
-                </option>
-                <option value="2907" data-subtitle="205">
-                  Intel Core i5-14600KF
-                </option>
-                <option value="2906" data-subtitle="188">
-                  Intel Core i5-12600
-                </option>
-                <option value="2905" data-subtitle="147">
-                  Intel Core i5-12500
-                </option>
-                <option value="2904" data-subtitle="112">
-                  Intel Core i3-13100F
-                </option>
-                <option value="2903" data-subtitle="77">
-                  AMD Ryzen 5 8600G
-                </option>
-                <option value="2899" data-subtitle="193">
-                  Intel Core i5-13400
-                </option>
-                <option value="2898" data-subtitle="314">
-                  Intel Core i5-11600KF
-                </option>
-                <option value="2893" data-subtitle="302">
-                  Intel Core i9-12900KS
-                </option>
-                <option value="2889" data-subtitle="320">
-                  Intel Core i7-14700KF
-                </option>
-                <option value="2884" data-subtitle="168">
-                  AMD Ryzen 5 5600X3D
-                </option>
-                <option value="2882" data-subtitle="365">
-                  Intel Core i9-14900KF
-                </option>
-                <option value="2880" data-subtitle="226">
-                  Intel Core i7-12700
-                </option>
-                <option value="2878" data-subtitle="168">
-                  AMD Ryzen 7 5700X3D
-                </option>
-                <option value="2866" data-subtitle="226">
-                  Intel Core i7-12700F
-                </option>
-                <option value="2865" data-subtitle="205">
-                  Intel Core i5-14600K
-                </option>
-                <option value="2864" data-subtitle="164">
-                  Intel Core i5-11500
-                </option>
-                <option value="2860" data-subtitle="164">
-                  Intel Core i7-11700
-                </option>
-                <option value="2859" data-subtitle="111">
-                  AMD Ryzen 9 7900
-                </option>
-                <option value="2858" data-subtitle="179">
-                  Intel Core i7-7800X
-                </option>
-                <option value="2856" data-subtitle="316">
-                  Intel Core i9-13900KS
-                </option>
-                <option value="2855" data-subtitle="314">
-                  Intel Core i9-11900K
-                </option>
-                <option value="2854" data-subtitle="193">
-                  Intel Core i5-13500
-                </option>
-                <option value="2853" data-subtitle="112">
-                  Intel Core i3-12100
-                </option>
-                <option value="2852" data-subtitle="204">
-                  AMD Ryzen 9 7900X3D
-                </option>
-                <option value="2850" data-subtitle="316">
-                  Intel Core i9-13900KF
-                </option>
-                <option value="2847" data-subtitle="193">
-                  Intel Core i5-13400F
-                </option>
-                <option value="2842" data-subtitle="137">
-                  AMD Ryzen 9 3900XT
-                </option>
-                <option value="2831" data-subtitle="137">
-                  AMD Ryzen 7 3800XT
-                </option>
-                <option value="2826" data-subtitle="164">
-                  Intel Core i5-11400F
-                </option>
-                <option value="2824" data-subtitle="365">
-                  Intel Core i9-14900K
-                </option>
-                <option value="2823" data-subtitle="320">
-                  Intel Core i7-14700K
-                </option>
-                <option value="2820" data-subtitle="147">
-                  Intel Core i5-12400
-                </option>
-                <option value="2818" data-subtitle="314">
-                  Intel Core i5-11600K
-                </option>
-                <option value="2816" data-subtitle="164">
-                  Intel Core i5-11400
-                </option>
-                <option value="2812" data-subtitle="204">
-                  AMD Ryzen 9 7950X3D
-                </option>
-                <option value="2811" data-subtitle="289">
-                  AMD Ryzen 9 7950X
-                </option>
-                <option value="2810" data-subtitle="314">
-                  Intel Core i7-11700K
-                </option>
-                <option value="2804" data-subtitle="239">
-                  Intel Core i7-12700KF
-                </option>
-                <option value="2796" data-subtitle="104">
-                  AMD Ryzen 5 5500
-                </option>
-                <option value="2795" data-subtitle="112">
-                  Intel Core i3-12100F
-                </option>
-                <option value="2786" data-subtitle="227">
-                  Intel Core i5-13600KF
-                </option>
-                <option value="2785" data-subtitle="302">
-                  Intel Core i9-12900K
-                </option>
-                <option value="2780" data-subtitle="137">
-                  AMD Ryzen 9 3950X
-                </option>
-                <option value="2778" data-subtitle="316">
-                  Intel Core i9-13900K
-                </option>
-                <option value="2776" data-subtitle="188">
-                  Intel Core i5-12600KF
-                </option>
-                <option value="2775" data-subtitle="289">
-                  AMD Ryzen 9 7900X
-                </option>
-                <option value="2769" data-subtitle="147">
-                  Intel Core i5-12400F
-                </option>
-                <option value="2765" data-subtitle="104">
-                  AMD Ryzen 7 5700X
-                </option>
-                <option value="2759" data-subtitle="168">
-                  AMD Ryzen 7 5800X3D
-                </option>
-                <option value="2758" data-subtitle="168">
-                  AMD Ryzen 9 5950X
-                </option>
-                <option value="2757" data-subtitle="227">
-                  Intel Core i5-13600K
-                </option>
-                <option value="2756" data-subtitle="111">
-                  AMD Ryzen 5 7600
-                </option>
-                <option value="2752" data-subtitle="137">
-                  AMD Ryzen 7 3800X
-                </option>
-                <option value="2749" data-subtitle="239">
-                  Intel Core i7-12700K
-                </option>
-                <option value="2748" data-subtitle="104">
-                  AMD Ryzen 5 5600G
-                </option>
-                <option value="2747" data-subtitle="188">
-                  Intel Core i5-12600K
-                </option>
-                <option value="2745" data-subtitle="104">
-                  AMD Ryzen 5 5600
-                </option>
-                <option value="2737" data-subtitle="168">
-                  AMD Ryzen 9 5900X
-                </option>
-                <option value="2733" data-subtitle="137">
-                  AMD Ryzen 9 3900X
-                </option>
-                <option value="2730" data-subtitle="168">
-                  AMD Ryzen 7 5800X
-                </option>
-                <option value="2729" data-subtitle="204">
-                  AMD Ryzen 7 7800X3D
-                </option>
-                <option value="2716" data-subtitle="85">
-                  AMD Ryzen 7 3700X
-                </option>
-                <option value="2715" data-subtitle="104">
-                  AMD Ryzen 5 5600X
-                </option>
-                <option value="2713" data-subtitle="179">
-                  AMD Ryzen 5 7600X
-                </option>
-                <option value="2990" data-subtitle="332">
-                  Intel Xeon E5-2687W V4
-                </option>
-                <option value="2989" data-subtitle="240">
-                  Intel Xeon E5-2683 V4
-                </option>
-                <option value="2988" data-subtitle="210">
-                  Intel Xeon E5-2650 V4
-                </option>
-                <option value="2983" data-subtitle="332">
-                  Intel Core i9-9980XE
-                </option>
-                <option value="2976" data-subtitle="332">
-                  Intel Core i9-10980XE
-                </option>
-                <option value="2975" data-subtitle="332">
-                  Intel Core i9-10940X
-                </option>
-                <option value="2974" data-subtitle="280">
-                  Intel Core i7-6950X
-                </option>
-                <option value="2957" data-subtitle="130">
-                  AMD Ryzen 9 PRO 7945
-                </option>
-                <option value="2956" data-subtitle="340">
-                  AMD Ryzen 9 9950X
-                </option>
-                <option value="2955" data-subtitle="224">
-                  AMD Ryzen 9 9900X
-                </option>
-                <option value="2948" data-subtitle="340">AMD EPYC 4564P</option>
-                <option value="2946" data-subtitle="290">
-                  Intel Xeon E5-2699 V4
-                </option>
-                <option value="2945" data-subtitle="240">
-                  Intel Xeon E5-2680 V4
-                </option>
-                <option value="2939" data-subtitle="332">
-                  Intel Core i9-10900X
-                </option>
-                <option value="2933" data-subtitle="166">
-                  AMD Threadripper 3990X
-                </option>
-                <option value="2932" data-subtitle="360">
-                  AMD Threadripper 2920X
-                </option>
-                <option value="2922" data-subtitle="132">
-                  Intel Core i7-13700F
-                </option>
-                <option value="2910" data-subtitle="132">
-                  Intel Core i9-10900
-                </option>
-                <option value="2909" data-subtitle="132">
-                  Intel Core i7-13700
-                </option>
-                <option value="2901" data-subtitle="132">
-                  Intel Core i9-10900F
-                </option>
-                <option value="2887" data-subtitle="416">
-                  AMD Threadripper 2990WX
-                </option>
-                <option value="2886" data-subtitle="360">
-                  AMD Threadripper 2950X
-                </option>
-                <option value="2877" data-subtitle="280">
-                  Intel Core i9-7900X
-                </option>
-                <option value="2871" data-subtitle="468">
-                  AMD Threadripper 3970X
-                </option>
-                <option value="2870" data-subtitle="300">
-                  AMD Threadripper 1920X
-                </option>
-                <option value="2867" data-subtitle="252">
-                  Intel Core i9-10900KF
-                </option>
-                <option value="2863" data-subtitle="468">
-                  AMD Threadripper 3960X
-                </option>
-                <option value="2839" data-subtitle="300">
-                  AMD Threadripper 1950X
-                </option>
-                <option value="2830" data-subtitle="252">
-                  Intel Core i7-13700KF
-                </option>
-                <option value="2791" data-subtitle="252">
-                  Intel Core i9-10900K
-                </option>
-                <option value="2784" data-subtitle="125">
-                  Intel Core i9-10850K
-                </option>
-                <option value="2753" data-subtitle="125">
-                  Intel Core i7-13700K
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
+        <h3 class="sub__title">Choose Your Components</h3>
 
-      <div class="form-group dropdown-container" id="gpuDropdownContainer2">
-        <div class="gray__bg">
-          <div class="pd-30">
+        <!-- CPU -->
+        <div class="form-group dropdown-container" id="cpuDropdownContainer">
             <div class="template__three-select-filters">
-              <div class="category">
-                <div class="category__title category--show">
-                  <img src="../../static/images/gpu2.png" />
-                  <div class="title__text">GPU</div>
+                <div class="category">
+                    <div class="category__title category--show">
+                        <img src="{% static 'images/cpu.png' %}" alt="" />
+                        <div class="title__text">CPU</div>
+                    </div>
                 </div>
-              </div>
-              <div class="filter">
-                <select id="gpuDropdown2">
-                  <option value="">Select GPU Model</option>
-                </select>
-                <div class="dropdown-content">
-                  <input type="text" id="gpuSearch2" placeholder="Search GPU" />
-                  <select size="10" id="gpuOptions2">
-                    <option value="">Select GPU Model 2</option>
-                  </select>
+                <div class="filter">
+                    <input type="text" id="cpuInput" placeholder="Enter CPU Model" />
+                    <div class="dropdown-content" id="cpuDropdownContent">
+                        <select size="10" id="cpuOptions">
+                            {% for cpu in cpus %}
+                                <option value="{{ cpu.id }}" data-subtitle="{{ cpu.power_usage }}">{{ cpu.model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="del__btn" id="delNewGpuOption" style="display: block">
-              <button><i class="icon-msi-add del__icon"></i></button>
+        </div>
+
+        <!-- GPU -->
+        <div class="gpu-container">
+            <div class="form-group dropdown-container gpu-block" id="gpuDropdownContainer0">
+                <div class="template__three-select-filters">
+                    <div class="category">
+                        <div class="category__title category--show">
+                            <img src="{% static 'images/gpu2.png' %}" alt="" />
+                            <div class="title__text">GPU</div>
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <input type="text" id="gpuInput0" placeholder="Enter GPU Model" />
+                        <div class="dropdown-content" id="gpuDropdownContent0">
+                            <select size="10" id="gpuOptions0">
+                                {% for gpu in gpus %}
+                                    <option value="{{ gpu.id }}" data-subtitle="{{ gpu.power_usage }}">{{ gpu.model }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
 
-      <div class="add__btn" id="addNewGpuOption">
-        <button><i class="icon-msi-add add__icon"></i>Add New Option</button>
-      </div>
+        <div class="add__btn" id="addNewGpuOption">
+            <button><i class="fas fa-plus"></i> Add GPU</button>
+        </div>
 
-      <div class="form-group dropdown-container">
-        <div class="template__three-select-filters">
-          <div class="category">
-            <div class="category__title category--show">
-              <img src="../../static/images/ram.png" alt="" />
-              <div class="title__text">RAM</div>
+        <!-- RAM -->
+        <div class="dropdown-container form-group">
+            <div class="template__three-select-filters">
+                <div class="category">
+                    <div class="category__title category--show">
+                        <img src="{% static 'images/ram.png' %}" alt="" />
+                        <div class="title__text">RAM</div>
+                    </div>
+                </div>
+                <div class="filter">
+                    <select id="ramType">
+                        <option value="DDR4" data-subtitle="10">DDR4</option>
+                        <option value="DDR5" data-subtitle="15">DDR5</option>
+                    </select>
+                    <div class="h-g20"></div>
+                    <input type="number" id="ramQuantity" min="0" value="0" placeholder="Number of Modules" />
+                </div>
             </div>
-          </div>
-          <div class="filter">
-            <select id="ramType">
-              <option value="DDR4" data-subtitle="10">DDR4</option>
-              <option value="DDR5" data-subtitle="15">DDR5</option>
-            </select>
-            <div class="h-g20"></div>
-            <input type="number" id="ramQuantity" min="0" value="0" />
-          </div>
         </div>
-      </div>
 
-      <div class="form-group dropdown-container">
-        <div class="template__three-select-filters">
-          <div class="category">
-            <div class="category__title category--show">
-              <img src="../../static/images/pcie.png" alt="" />
-              <div class="title__text">PCI-e</div>
+        <!-- PCI-e -->
+        <div class="form-group dropdown-container">
+            <div class="template__three-select-filters">
+                <div class="category">
+                    <div class="category__title category--show">
+                        <img src="{% static 'images/pcie.png' %}" alt="" />
+                        <div class="title__text">PCI-e</div>
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="pci-grid">
+                        <div>
+                            <label for="pciQuantity1">PCI-e x1</label>
+                            <input type="number" class="pciQuantity" id="pciQuantity1" min="0" value="0" />
+                        </div>
+                        <div>
+                            <label for="pciQuantity2">PCI-e x4</label>
+                            <input type="number" class="pciQuantity" id="pciQuantity2" min="0" value="0" />
+                        </div>
+                        <div>
+                            <label for="pciQuantity3">PCI-e x8</label>
+                            <input type="number" class="pciQuantity" id="pciQuantity3" min="0" value="0" />
+                        </div>
+                        <div>
+                            <label for="pciQuantity4">PCI-e x16</label>
+                            <input type="number" class="pciQuantity" id="pciQuantity4" min="0" value="0" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="filter" id="filter">
-            <label for="pciType1">PCI-e x1</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="pciQuantity1"
-              min="0"
-              value="0"
-            />
-            <label for="pciType1">PCI-e x4</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="pciQuantity2"
-              min="0"
-              value="0"
-            />
-            <label for="pciType1">PCI-e x8</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="pciQuantity3"
-              min="0"
-              value="0"
-            />
-            <label for="pciType1">PCI-e x16</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="pciQuantity4"
-              min="0"
-              value="0"
-            />
-          </div>
         </div>
-      </div>
 
-      <div class="form-group dropdown-container">
-        <div class="template__three-select-filters">
-          <div class="category">
-            <div class="category__title category--show">
-              <img src="../../static/images/storages.png" alt="" />
-              <div class="title__text">Storages</div>
+        <!-- Storages -->
+        <div class="form-group dropdown-container">
+            <div class="template__three-select-filters">
+                <div class="category">
+                    <div class="category__title category--show">
+                        <img src="{% static 'images/storages.png' %}" alt="" />
+                        <div class="title__text">Storages</div>
+                    </div>
+                </div>
+                <div class="filter">
+                    <div class="storage-grid">
+                        <div>
+                            <label for="storageQuantity1">HDD Drive</label>
+                            <input type="number" class="pciQuantity" id="storageQuantity1" min="0" value="0" />
+                        </div>
+                        <div>
+                            <label for="storageQuantity2">SATA SSD</label>
+                            <input type="number" class="pciQuantity" id="storageQuantity2" min="0" value="0" />
+                        </div>
+                        <div>
+                            <label for="storageQuantity3">M.2 SSD</label>
+                            <input type="number" class="pciQuantity" id="storageQuantity3" min="0" value="0" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="filter" id="filter">
-            <label for="pciType1">HDD Drive</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="storageQuantity1"
-              min="0"
-              value="0"
-            />
-            <label for="pciType1">SATA SSD</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="storageQuantity2"
-              min="0"
-              value="0"
-            />
-            <label for="pciType1">M.2 SSD</label>
-            <input
-              type="number"
-              class="pciQuantity"
-              id="storageQuantity3"
-              min="0"
-              value="0"
-            />
-          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="opticalDriveType">Select Optical Drive</label>
-            <select id="opticalDriveType">
-              <option value="" selected=""></option>
-              <option value="CD-ROM / CD-RW Drive" data-subtitle="20">
-                CD-ROM / CD-RW Drive
-              </option>
-              <option
-                value="DVD-ROM / DVD-RW / DVD+RW Drive"
-                data-subtitle="25"
-              >
-                DVD-ROM / DVD-RW / DVD+RW Drive
-              </option>
-              <option value="DVD / CD-RW Combo Drive" data-subtitle="30">
-                DVD / CD-RW Combo Drive
-              </option>
-              <option value="Blu-Ray Drive" data-subtitle="25">
-                Blu-Ray Drive
-              </option>
-            </select>
-          </div>
+        <!-- Optical Drive and Fans -->
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="opticalDriveType">Optical Drive</label>
+                    <select id="opticalDriveType">
+                        <option value="" selected>None</option>
+                        <option value="CD-ROM / CD-RW Drive" data-subtitle="20">CD-ROM / CD-RW Drive</option>
+                        <option value="DVD-ROM / DVD-RW / DVD+RW Drive" data-subtitle="25">DVD-ROM / DVD-RW / DVD+RW Drive</option>
+                        <option value="DVD / CD-RW Combo Drive" data-subtitle="30">DVD / CD-RW Combo Drive</option>
+                        <option value="Blu-Ray Drive" data-subtitle="25">Blu-Ray Drive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="fanQuantity">Number of Fans</label>
+                    <input type="number" id="fanQuantity" min="0" value="0" placeholder="Quantity" />
+                </div>
+            </div>
         </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="fanQuantity">Select Fans Num</label>
-            <input type="number" id="fanQuantity" min="0" value="0" />
-          </div>
+
+        <!-- Result -->
+        <div class="combined-output" id="totalPower">
+            Recommended PSU Wattage: <span class="total-power-value">0W</span>
         </div>
-      </div>
-      <div class="b-xiang"></div>
-      <div class="combined-output" id="totalPower">
-        Your recommended PSU wattage is:
-        <span class="total-power-value">0W</span>
-      </div>
-      <button class="reset-button" id="resetButton">Reset</button>
+        <button class="reset-button" id="resetButton"><i class="fas fa-undo"></i> Reset</button>
     </div>
-  </body>
+
+    <!-- JavaScript для пошуку, додавання GPU та оновлення потужності -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cpuInput = document.getElementById('cpuInput');
+            const cpuDropdownContent = document.getElementById('cpuDropdownContent');
+            const cpuOptions = document.getElementById('cpuOptions');
+            const gpuContainer = document.querySelector('.gpu-container');
+            const addNewGpuButton = document.getElementById('addNewGpuOption');
+            const ramType = document.getElementById('ramType');
+            const ramQuantity = document.getElementById('ramQuantity');
+            const pciQuantity1 = document.getElementById('pciQuantity1');
+            const pciQuantity2 = document.getElementById('pciQuantity2');
+            const pciQuantity3 = document.getElementById('pciQuantity3');
+            const pciQuantity4 = document.getElementById('pciQuantity4');
+            const storageQuantity1 = document.getElementById('storageQuantity1');
+            const storageQuantity2 = document.getElementById('storageQuantity2');
+            const storageQuantity3 = document.getElementById('storageQuantity3');
+            const opticalDriveType = document.getElementById('opticalDriveType');
+            const fanQuantity = document.getElementById('fanQuantity');
+            const totalPower = document.querySelector('.total-power-value');
+
+            // Змінні для зберігання обраних значень
+            let selectedCpuPower = 0;
+            let selectedGpuPowers = [0]; // Масив для зберігання потужностей усіх GPU
+            let gpuCount = 0; // Лічильник для унікальних ID GPU
+
+            // Показати/приховати випадаючий список для CPU
+            cpuInput.addEventListener('input', function() {
+                const searchText = this.value.toLowerCase();
+                const options = cpuOptions.options;
+                let hasMatches = false;
+
+                for (let i = 0; i < options.length; i++) {
+                    const optionText = options[i].text.toLowerCase();
+                    const matches = optionText.startsWith(searchText);
+                    options[i].style.display = matches ? '' : 'none';
+                    if (matches) hasMatches = true;
+                }
+
+                cpuDropdownContent.style.display = (searchText && hasMatches) ? 'block' : 'none';
+            });
+
+            // Вибір CPU
+            cpuOptions.addEventListener('change', function() {
+                if (this.value) {
+                    const selectedOption = this.options[this.selectedIndex];
+                    cpuInput.value = selectedOption.text;
+                    selectedCpuPower = parseInt(selectedOption.getAttribute('data-subtitle')) || 0;
+                    cpuDropdownContent.style.display = 'none';
+                    updatePower();
+                }
+            });
+
+            // Функція для ініціалізації нового блоку GPU
+            function initializeGpuBlock(index) {
+                const gpuInput = document.getElementById(`gpuInput${index}`);
+                const gpuDropdownContent = document.getElementById(`gpuDropdownContent${index}`);
+                const gpuOptions = document.getElementById(`gpuOptions${index}`);
+
+                // Показати/приховати випадаючий список для GPU
+                gpuInput.addEventListener('input', function() {
+                    const searchText = this.value.toLowerCase();
+                    const options = gpuOptions.options;
+                    let hasMatches = false;
+
+                    for (let i = 0; i < options.length; i++) {
+                        const optionText = options[i].text.toLowerCase();
+                        const matches = optionText.startsWith(searchText);
+                        options[i].style.display = matches ? '' : 'none';
+                        if (matches) hasMatches = true;
+                    }
+
+                    gpuDropdownContent.style.display = (searchText && hasMatches) ? 'block' : 'none';
+                });
+
+                // Вибір GPU
+                gpuOptions.addEventListener('change', function() {
+                    if (this.value) {
+                        const selectedOption = this.options[this.selectedIndex];
+                        gpuInput.value = selectedOption.text;
+                        selectedGpuPowers[index] = parseInt(selectedOption.getAttribute('data-subtitle')) || 0;
+                        gpuDropdownContent.style.display = 'none';
+                        updatePower();
+                    }
+                });
+
+                // Приховуємо список, якщо користувач клікає поза ним
+                document.addEventListener('click', function(event) {
+                    if (!gpuInput.contains(event.target) && !gpuDropdownContent.contains(event.target)) {
+                        gpuDropdownContent.style.display = 'none';
+                    }
+                });
+
+                // Показуємо список при фокусі на полі введення
+                gpuInput.addEventListener('focus', function() {
+                    if (this.value) {
+                        gpuDropdownContent.style.display = 'block';
+                    }
+                });
+            }
+
+            // Ініціалізація першого блоку GPU
+            initializeGpuBlock(0);
+
+            // Додавання нового блоку GPU
+            addNewGpuButton.addEventListener('click', function() {
+                gpuCount++;
+                selectedGpuPowers.push(0); // Додаємо місце для нової потужності GPU
+
+                const newGpuBlock = document.createElement('div');
+                newGpuBlock.classList.add('form-group', 'dropdown-container', 'gpu-block');
+                newGpuBlock.id = `gpuDropdownContainer${gpuCount}`;
+                newGpuBlock.innerHTML = `
+                    <div class="template__three-select-filters">
+                        <div class="category">
+                            <div class="category__title category--show">
+                                <img src="{% static 'images/gpu2.png' %}" alt="" />
+                                <div class="title__text">GPU</div>
+                            </div>
+                        </div>
+                        <div class="filter">
+                            <input type="text" id="gpuInput${gpuCount}" placeholder="Enter GPU Model" />
+                            <div class="dropdown-content" id="gpuDropdownContent${gpuCount}">
+                                <select size="10" id="gpuOptions${gpuCount}">
+                                    {% for gpu in gpus %}
+                                        <option value="{{ gpu.id }}" data-subtitle="{{ gpu.power_usage }}">{{ gpu.model }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="del__btn" id="delNewGpuOption${gpuCount}">
+                        <button><i class="fas fa-trash-alt"></i> Delete</button>
+                    </div>
+                `;
+                gpuContainer.appendChild(newGpuBlock);
+
+                // Ініціалізація нового блоку GPU
+                initializeGpuBlock(gpuCount);
+
+                // Додавання обробника для кнопки видалення
+                const delButton = document.getElementById(`delNewGpuOption${gpuCount}`).querySelector('button');
+                delButton.addEventListener('click', function() {
+                    newGpuBlock.remove();
+                    selectedGpuPowers[gpuCount] = 0; // Скидаємо потужність видаленого GPU
+                    updatePower();
+                });
+            });
+
+            // Додаємо обробники подій для всіх інших компонентів
+            ramType.addEventListener('change', updatePower);
+            ramQuantity.addEventListener('input', updatePower);
+            pciQuantity1.addEventListener('input', updatePower);
+            pciQuantity2.addEventListener('input', updatePower);
+            pciQuantity3.addEventListener('input', updatePower);
+            pciQuantity4.addEventListener('input', updatePower);
+            storageQuantity1.addEventListener('input', updatePower);
+            storageQuantity2.addEventListener('input', updatePower);
+            storageQuantity3.addEventListener('input', updatePower);
+            opticalDriveType.addEventListener('change', updatePower);
+            fanQuantity.addEventListener('input', updatePower);
+
+            // Оновлення потужності
+            function updatePower() {
+                let total = selectedCpuPower;
+
+                // Додаємо потужність усіх GPU
+                const totalGpuPower = selectedGpuPowers.reduce((sum, power) => sum + power, 0);
+                total += totalGpuPower;
+
+                const ramPowerPerModule = parseInt(ramType.selectedOptions[0]?.getAttribute('data-subtitle') || 0);
+                const ramCount = parseInt(ramQuantity.value) || 0;
+                total += ramPowerPerModule * ramCount;
+
+                const pciPower1 = (parseInt(pciQuantity1.value) || 0) * 5;
+                const pciPower2 = (parseInt(pciQuantity2.value) || 0) * 10;
+                const pciPower3 = (parseInt(pciQuantity3.value) || 0) * 15;
+                const pciPower4 = (parseInt(pciQuantity4.value) || 0) * 25;
+                total += pciPower1 + pciPower2 + pciPower3 + pciPower4;
+
+                const storagePower1 = (parseInt(storageQuantity1.value) || 0) * 15;
+                const storagePower2 = (parseInt(storageQuantity2.value) || 0) * 5;
+                const storagePower3 = (parseInt(storageQuantity3.value) || 0) * 8;
+                total += storagePower1 + storagePower2 + storagePower3;
+
+                const opticalPower = parseInt(opticalDriveType.selectedOptions[0]?.getAttribute('data-subtitle') || 0);
+                total += opticalPower;
+
+                const fanPower = (parseInt(fanQuantity.value) || 0) * 5;
+                total += fanPower;
+
+                totalPower.textContent = `${total}W`;
+            }
+
+            // Кнопка скидання
+            document.getElementById('resetButton').addEventListener('click', function() {
+                cpuInput.value = '';
+                cpuOptions.value = '';
+                cpuDropdownContent.style.display = 'none';
+                selectedCpuPower = 0;
+
+                // Скидаємо всі GPU
+                gpuContainer.innerHTML = `
+                    <div class="form-group dropdown-container gpu-block" id="gpuDropdownContainer0">
+                        <div class="template__three-select-filters">
+                            <div class="category">
+                                <div class="category__title category--show">
+                                    <img src="{% static 'images/gpu2.png' %}" alt="" />
+                                    <div class="title__text">GPU</div>
+                                </div>
+                            </div>
+                            <div class="filter">
+                                <input type="text" id="gpuInput0" placeholder="Enter GPU Model" />
+                                <div class="dropdown-content" id="gpuDropdownContent0">
+                                    <select size="10" id="gpuOptions0">
+                                        {% for gpu in gpus %}
+                                            <option value="{{ gpu.id }}" data-subtitle="{{ gpu.power_usage }}">{{ gpu.model }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                selectedGpuPowers = [0];
+                gpuCount = 0;
+                initializeGpuBlock(0);
+
+                ramType.value = 'DDR4';
+                ramQuantity.value = '0';
+                pciQuantity1.value = '0';
+                pciQuantity2.value = '0';
+                pciQuantity3.value = '0';
+                pciQuantity4.value = '0';
+                storageQuantity1.value = '0';
+                storageQuantity2.value = '0';
+                storageQuantity3.value = '0';
+                opticalDriveType.value = '';
+                fanQuantity.value = '0';
+                totalPower.textContent = '0W';
+
+                const cpuOptionsList = cpuOptions.options;
+                for (let i = 0; i < cpuOptionsList.length; i++) {
+                    cpuOptionsList[i].style.display = '';
+                }
+            });
+        });
+    </script>
+</body>
 </html>
